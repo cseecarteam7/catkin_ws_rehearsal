@@ -276,6 +276,9 @@ RT_LIBRARY:FILEPATH=/usr/lib/arm-linux-gnueabihf/librt.so
 //Enable debian style python package layout
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
+//Name of the computer/site where compile is being run
+SITE:STRING=cseecar-desktop
+
 //LSB Distrib tag
 UBUNTU:BOOL=TRUE
 
@@ -655,8 +658,6 @@ GSL_STATIC_LIBS:INTERNAL=
 GSL_STATIC_LIBS_L:INTERNAL=
 GSL_STATIC_LIBS_OTHER:INTERNAL=
 GSL_STATIC_LIBS_PATHS:INTERNAL=
-//ADVANCED property for variable: GSL_VERSION
-GSL_VERSION-ADVANCED:INTERNAL=1
 GSL_VERSION:INTERNAL=2.1
 GSL_gsl_INCLUDEDIR:INTERNAL=
 GSL_gsl_LIBDIR:INTERNAL=

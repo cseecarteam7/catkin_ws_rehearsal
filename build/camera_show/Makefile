@@ -56,6 +56,17 @@ CMAKE_BINARY_DIR = /home/cseecar/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -78,17 +89,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -164,6 +164,21 @@ preinstall/fast:
 depend:
 	cd /home/cseecar/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+camera_show/CMakeFiles/video_show_node.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_show/CMakeFiles/video_show_node.dir/rule
+.PHONY : camera_show/CMakeFiles/video_show_node.dir/rule
+
+# Convenience name for target.
+video_show_node: camera_show/CMakeFiles/video_show_node.dir/rule
+
+.PHONY : video_show_node
+
+# fast build rule for target.
+video_show_node/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_show/CMakeFiles/video_show_node.dir/build.make camera_show/CMakeFiles/video_show_node.dir/build
+.PHONY : video_show_node/fast
 
 # Convenience name for target.
 camera_show/CMakeFiles/camera_show_node.dir/rule:
@@ -387,15 +402,43 @@ src/camera_show_node.cpp.s:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_show/CMakeFiles/camera_show_node.dir/build.make camera_show/CMakeFiles/camera_show_node.dir/src/camera_show_node.cpp.s
 .PHONY : src/camera_show_node.cpp.s
 
+src/video_show_node.o: src/video_show_node.cpp.o
+
+.PHONY : src/video_show_node.o
+
+# target to build an object file
+src/video_show_node.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_show/CMakeFiles/video_show_node.dir/build.make camera_show/CMakeFiles/video_show_node.dir/src/video_show_node.cpp.o
+.PHONY : src/video_show_node.cpp.o
+
+src/video_show_node.i: src/video_show_node.cpp.i
+
+.PHONY : src/video_show_node.i
+
+# target to preprocess a source file
+src/video_show_node.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_show/CMakeFiles/video_show_node.dir/build.make camera_show/CMakeFiles/video_show_node.dir/src/video_show_node.cpp.i
+.PHONY : src/video_show_node.cpp.i
+
+src/video_show_node.s: src/video_show_node.cpp.s
+
+.PHONY : src/video_show_node.s
+
+# target to generate assembly for a file
+src/video_show_node.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_show/CMakeFiles/video_show_node.dir/build.make camera_show/CMakeFiles/video_show_node.dir/src/video_show_node.cpp.s
+.PHONY : src/video_show_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... install"
-	@echo "... install/local"
+	@echo "... video_show_node"
 	@echo "... camera_show_node"
 	@echo "... rebuild_cache"
 	@echo "... camera_show_genpy"
@@ -416,6 +459,9 @@ help:
 	@echo "... src/camera_show_node.o"
 	@echo "... src/camera_show_node.i"
 	@echo "... src/camera_show_node.s"
+	@echo "... src/video_show_node.o"
+	@echo "... src/video_show_node.i"
+	@echo "... src/video_show_node.s"
 .PHONY : help
 
 

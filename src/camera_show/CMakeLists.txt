@@ -5,7 +5,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   message_generation
-
 )
 
 add_message_files(
@@ -33,9 +32,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}_node src/test.cpp)
-#add_executable(${PROJECT_NAME}_node src/camera_show_node.cpp)
+add_executable(${PROJECT_NAME}_node src/camera_show_node.cpp)
+add_executable(video_show_node src/video_show_node.cpp)
+
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS}
+${catkin_EXPORTED_TARGETS})
+add_dependencies(video_show_node ${${PROJECT_NAME}_EXPORTED_TARGETS}
 ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(${PROJECT_NAME}_node
@@ -43,3 +45,9 @@ target_link_libraries(${PROJECT_NAME}_node
   ${OpenCV_LIBS}
   #${GSL_LIBRARIES}
 )
+target_link_libraries(video_show_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+  #${GSL_LIBRARIES}
+)
+

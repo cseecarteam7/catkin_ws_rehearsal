@@ -85,8 +85,9 @@
 /home/cseecar/catkin_ws/build/mailbox/CMakeFiles/mailbox_geneus.dir
 /home/cseecar/catkin_ws/build/mailbox/CMakeFiles/mailbox_generate_messages_nodejs.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/rebuild_cache.dir
-/home/cseecar/catkin_ws/build/camera_on/CMakeFiles/test.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/install.dir
+/home/cseecar/catkin_ws/build/camera_on/CMakeFiles/test.dir
+/home/cseecar/catkin_ws/build/camera_on/CMakeFiles/camera_on_node_pointup.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/camera_on_node.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/edit_cache.dir
@@ -114,9 +115,10 @@
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/camera_on_gennodejs.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/install/strip.dir
 /home/cseecar/catkin_ws/build/camera_on/CMakeFiles/camera_on_genpy.dir
+/home/cseecar/catkin_ws/build/camera_show/CMakeFiles/install/local.dir
 /home/cseecar/catkin_ws/build/camera_show/CMakeFiles/install/strip.dir
 /home/cseecar/catkin_ws/build/camera_show/CMakeFiles/install.dir
-/home/cseecar/catkin_ws/build/camera_show/CMakeFiles/install/local.dir
+/home/cseecar/catkin_ws/build/camera_show/CMakeFiles/video_show_node.dir
 /home/cseecar/catkin_ws/build/camera_show/CMakeFiles/camera_show_node.dir
 /home/cseecar/catkin_ws/build/camera_show/CMakeFiles/rebuild_cache.dir
 /home/cseecar/catkin_ws/build/camera_show/CMakeFiles/camera_show_genpy.dir

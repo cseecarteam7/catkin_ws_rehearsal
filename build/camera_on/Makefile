@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -89,6 +78,17 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -164,6 +164,21 @@ preinstall/fast:
 depend:
 	cd /home/cseecar/catkin_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+camera_on/CMakeFiles/camera_on_node_pointup.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup.dir/rule
+.PHONY : camera_on/CMakeFiles/camera_on_node_pointup.dir/rule
+
+# Convenience name for target.
+camera_on_node_pointup: camera_on/CMakeFiles/camera_on_node_pointup.dir/rule
+
+.PHONY : camera_on_node_pointup
+
+# fast build rule for target.
+camera_on_node_pointup/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/build
+.PHONY : camera_on_node_pointup/fast
 
 # Convenience name for target.
 camera_on/CMakeFiles/camera_on_node.dir/rule:
@@ -537,6 +552,33 @@ src/camera_on_node.cpp.s:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node.dir/build.make camera_on/CMakeFiles/camera_on_node.dir/src/camera_on_node.cpp.s
 .PHONY : src/camera_on_node.cpp.s
 
+src/camera_on_node_pointup.o: src/camera_on_node_pointup.cpp.o
+
+.PHONY : src/camera_on_node_pointup.o
+
+# target to build an object file
+src/camera_on_node_pointup.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/src/camera_on_node_pointup.cpp.o
+.PHONY : src/camera_on_node_pointup.cpp.o
+
+src/camera_on_node_pointup.i: src/camera_on_node_pointup.cpp.i
+
+.PHONY : src/camera_on_node_pointup.i
+
+# target to preprocess a source file
+src/camera_on_node_pointup.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/src/camera_on_node_pointup.cpp.i
+.PHONY : src/camera_on_node_pointup.cpp.i
+
+src/camera_on_node_pointup.s: src/camera_on_node_pointup.cpp.s
+
+.PHONY : src/camera_on_node_pointup.s
+
+# target to generate assembly for a file
+src/camera_on_node_pointup.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/src/camera_on_node_pointup.cpp.s
+.PHONY : src/camera_on_node_pointup.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -544,8 +586,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... install"
+	@echo "... test"
+	@echo "... camera_on_node_pointup"
 	@echo "... camera_on_node"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... edit_cache"
@@ -576,6 +619,9 @@ help:
 	@echo "... src/camera_on_node.o"
 	@echo "... src/camera_on_node.i"
 	@echo "... src/camera_on_node.s"
+	@echo "... src/camera_on_node_pointup.o"
+	@echo "... src/camera_on_node_pointup.i"
+	@echo "... src/camera_on_node_pointup.s"
 .PHONY : help
 
 

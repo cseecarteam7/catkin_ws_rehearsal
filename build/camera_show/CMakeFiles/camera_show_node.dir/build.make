@@ -139,8 +139,6 @@ camera_show_node_EXTERNAL_OBJECTS =
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_ximgproc3.so.3.3.1
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_xobjdetect3.so.3.3.1
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_xphoto3.so.3.3.1
-/home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /usr/lib/arm-linux-gnueabihf/libgsl.so
-/home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /usr/lib/arm-linux-gnueabihf/libgslcblas.so
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_shape3.so.3.3.1
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_photo3.so.3.3.1
 /home/cseecar/catkin_ws/devel/lib/camera_show/camera_show_node: /opt/ros/kinetic/lib/arm-linux-gnueabihf/libopencv_datasets3.so.3.3.1

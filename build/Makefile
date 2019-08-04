@@ -829,6 +829,19 @@ mailbox_generate_messages_nodejs/fast:
 .PHONY : mailbox_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named camera_on_node_pointup
+
+# Build rule for target.
+camera_on_node_pointup: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_on_node_pointup
+.PHONY : camera_on_node_pointup
+
+# fast build rule for target.
+camera_on_node_pointup/fast:
+	$(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/build
+.PHONY : camera_on_node_pointup/fast
+
+#=============================================================================
 # Target rules for targets named camera_on_node
 
 # Build rule for target.
@@ -1128,6 +1141,19 @@ camera_on_genpy/fast:
 .PHONY : camera_on_genpy/fast
 
 #=============================================================================
+# Target rules for targets named video_show_node
+
+# Build rule for target.
+video_show_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 video_show_node
+.PHONY : video_show_node
+
+# fast build rule for target.
+video_show_node/fast:
+	$(MAKE) -f camera_show/CMakeFiles/video_show_node.dir/build.make camera_show/CMakeFiles/video_show_node.dir/build
+.PHONY : video_show_node/fast
+
+#=============================================================================
 # Target rules for targets named camera_show_node
 
 # Build rule for target.
@@ -1360,6 +1386,7 @@ help:
 	@echo "... mailbox_generate_messages_eus"
 	@echo "... mailbox_geneus"
 	@echo "... mailbox_generate_messages_nodejs"
+	@echo "... camera_on_node_pointup"
 	@echo "... camera_on_node"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_nodejs"
@@ -1383,6 +1410,7 @@ help:
 	@echo "... camera_on_generate_messages_nodejs"
 	@echo "... camera_on_gennodejs"
 	@echo "... camera_on_genpy"
+	@echo "... video_show_node"
 	@echo "... camera_show_node"
 	@echo "... camera_show_genpy"
 	@echo "... camera_show_generate_messages_py"
