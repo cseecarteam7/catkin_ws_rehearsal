@@ -237,7 +237,7 @@ int img_process(Mat &frame)
 	cvtColor(frame, grayframe, COLOR_BGR2GRAY);
 	Rect rect_roi(0,YHalf,Width,YHalf);
 	//Rect start_rect(0, 70, Width, YHalf - 70);
-	Rect start_rect(135, 80, 50, YHalf - 80);
+	Rect start_rect(145, 90, 40, YHalf - 90);
 
 	roi = frame(rect_roi);
 
@@ -339,13 +339,13 @@ main(int argc, char**argv)
 		stringstream result_message;
 
 		if(start == 0)
-		result_message << differ << "/" << "65";
+		result_message << differ << "/" << "68";	// ideal speed = =65
 		
 		else {
 			start = clock() - start;
 			//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@end : %Lf @@@@@@@@ minus : %Lf\n sec : %0.2f\n", end, end-start, (float)((end-start)/CLOCKS_PER_SEC));
 			
-			if(((float)start/CLOCKS_PER_SEC) >= 2.5)
+			if(((float)start/CLOCKS_PER_SEC) >= 7.0)
 				result_message << "00" << "/" << "00";
 		}
 
@@ -354,7 +354,7 @@ main(int argc, char**argv)
 		loop_rate.sleep();
 
 		std::cout << fr_no << ":" << differ << endl;
-		if((float)start/CLOCKS_PER_SEC >= 2.5) break;
+		if((float)start/CLOCKS_PER_SEC >= 7.0) break;
 #endif
 	}
 

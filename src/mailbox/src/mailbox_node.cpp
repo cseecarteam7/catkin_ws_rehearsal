@@ -45,27 +45,31 @@ void msgCallback(const std_msgs::String::ConstPtr& given_msg) {
 			str_spd = differSpeed.substr(i+1,2);
 			break;
 		}
-	}
+	}	
 	sub_value = atoi(str_differ.c_str()); //differ ;int
 	spd = atoi(str_spd.c_str()); //speed ;int
 	
-	if(spd != 0)
-		printf("differ : %d     speed : %d \n",sub_value, spd);
-
 	sub_value -= 32; // ideal value = 20
 	if(0 <= abs(sub_value) && abs(sub_value) <= mid_threshold){
 		angle = 90;
 		sub_value = 0;	
 	}
 	else if(mid_threshold < abs(sub_value) && abs(sub_value) <= 70){
-		if(sub_value < 0) sub_value = (sub_value + mid_threshold) * 0.2; // 오른쪽으로 치우침. 왼쪽으로 가야함.
-		else sub_value = (sub_value - mid_threshold) * 0.2;
+		if(sub_value < 0) sub_value = (sub_value + mid_threshold) * 0.1; // 오른쪽으로 치우침. 왼쪽으로 가야함.
+		else sub_value = (sub_value - mid_threshold) * 0.1;
 	}
 	else {	// 
 		if(sub_value < 0) sub_value = (sub_value + mid_threshold) * 0.65;
 		else sub_value = (sub_value - mid_threshold) * 0.65;
 	}
 
+	/*if (0 <= abs(sub_value) && abs(sub_value) <= 15 && spd > 0) {
+		spd = 72;
+	}*/
+
+	if(spd != 0){
+		printf("differ: %d / speed: %d\n", sub_value, spd);
+	}
 	angle = 90 - sub_value;
 
 	if(angle > max_angle) angle = max_angle;
