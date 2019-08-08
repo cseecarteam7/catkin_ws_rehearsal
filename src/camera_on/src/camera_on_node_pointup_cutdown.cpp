@@ -156,12 +156,13 @@ void find_start_lines(Mat &img, vector<Vec4i> &lines)
 			slope = (y2 - y1) / (float)(x2 - x1);
 
 		//Filter lines based on slope
-		if (abs(slope) < 0.125) {
+		if (abs(slope) < 0.065) {
 			find_flag = 1;
 			putText(img, format("Find START LINE: %d\n", lap_cnt), Point(50,50), FONT_HERSHEY_SIMPLEX,0.5,Yellow,2);
 			printf("lap_cnt: %d\n", lap_cnt);
 
 			if(flag){
+				printf("@@@@@@@@@@@@@@@@@@ lap_cnt increase!! @@@@@@@@@@@@@@@@@@@@");
 				lap_cnt++;
 			}
 			flag = 0;
@@ -171,11 +172,12 @@ void find_start_lines(Mat &img, vector<Vec4i> &lines)
 
 	if(!find_flag) pre_cnt++;
 	printf("pre_cnt: %d\n", pre_cnt);
-	if(pre_cnt > 200){
+	
+	if(pre_cnt > 2000){
 		pre_cnt = 0;
 		flag = 1;
 	}
-	if(lap_cnt == -1 && clock_flag == 0) {
+	if(lap_cnt == 2 && clock_flag == 0) {
 		start = clock();
 		clock_flag = 1;
 		printf("on clock start(start: %ld)\n", start);
@@ -234,7 +236,8 @@ int img_process(Mat &frame)
 	Mat start_roi;
 	cvtColor(frame, grayframe, COLOR_BGR2GRAY);
 	Rect rect_roi(0,YHalf,Width,YHalf);
-	Rect start_rect(0, 50, Width, YHalf - 50);
+	//Rect start_rect(0, 70, Width, YHalf - 70);
+	Rect start_rect(135, 80, 50, YHalf - 80);
 
 	roi = frame(rect_roi);
 
@@ -271,14 +274,14 @@ int img_process(Mat &frame)
 	circle (roi, Point(XHalf, YPoint), 5, Scalar(250,250,250),-1);
 	circle(roi, Point(XHalf + differ, YPoint), 5, Scalar(0, 0, 255), 2);
 	putText(roi,format("%3d - %3d = %3d",(int)rdistance, (int)ldistance, differ),Point(XHalf-100,YHalf/2),FONT_HERSHEY_SIMPLEX,0.5,Yellow,2);
-	imshow("roi",roi);
+	//imshow("roi",roi);
 	//imshow("edgeframe",edge_frame);
 #endif
 #ifdef CAMERA_SHOW_MORE
 	//imshow("frame", frame);
 	//imshow("roi_gray_ch3", roi_gray_ch3);
 #endif
-	//imshow("roi", roi);
+	//imshow("start_roi", start_roi);
 	return differ;
 }
 
@@ -287,7 +290,7 @@ int
 main(int argc, char**argv)
 {
 	VideoCapture cap(0);
-	//  VideoCapture cap("compete.mp4");
+	//VideoCapture cap("/home/cseecar/catkin_ws/video/clockwise.mp4");
 	Mat frame;
 
 	if(!cap.isOpened()){
@@ -342,16 +345,16 @@ main(int argc, char**argv)
 			start = clock() - start;
 			//printf("@@@@@@@@@@@@@@@@@@@@@@@@@@end : %Lf @@@@@@@@ minus : %Lf\n sec : %0.2f\n", end, end-start, (float)((end-start)/CLOCKS_PER_SEC));
 			
-			if(((float)start/CLOCKS_PER_SEC) >= 0.2)
+			if(((float)start/CLOCKS_PER_SEC) >= 2.5)
 				result_message << "00" << "/" << "00";
 		}
 
 		cam_msg.data = result_message.str(); 
 		pub.publish(cam_msg);
 		loop_rate.sleep();
-#else
+
 		std::cout << fr_no << ":" << differ << endl;
-		if((float)start/CLOCKS_PER_SEC >= 0.2) break;
+		if((float)start/CLOCKS_PER_SEC >= 2.5) break;
 #endif
 	}
 

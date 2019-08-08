@@ -52,7 +52,7 @@ void msgCallback(const std_msgs::String::ConstPtr& given_msg) {
 	if(spd != 0)
 		printf("differ : %d     speed : %d \n",sub_value, spd);
 
-	sub_value -= 20; 
+	sub_value -= 32; // ideal value = 20
 	if(0 <= abs(sub_value) && abs(sub_value) <= mid_threshold){
 		angle = 90;
 		sub_value = 0;	
