@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/Int8.h"
 #include "std_msgs/Int16.h"
+#include "std_msgs/String.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/wait.h>
@@ -10,6 +11,7 @@
 #include <stdlib.h>
 //#include <iostream>
 #include <geometry_msgs/Twist.h>
+#include <string>
 
 using namespace std;
 
@@ -22,31 +24,53 @@ ros::Subscriber sub2;
 std_msgs::Int8 msg2;
 int key = 0;
 
-int spd=70;
-int angle=90;
+int spd;
+int angle;
+int mid_threshold = 40;
+int min_angle = 30;
+int max_angle = 150;
 
-void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
+string differSpeed; //string data, expected to subscribed ; "differ/speed"
 
-	sub_value = (given_msg->data);
 
-	if(0 <= abs(sub_value) && abs(sub_value) <= 20){
-		angle = 90;	
+//void msgCallback(const std_msgs::Int16::ConstPtr& given_msg) {
+void msgCallback(const std_msgs::String::ConstPtr& given_msg) {
+
+	differSpeed = (given_msg->data); //String type
+	string str_differ, str_spd;
+
+	for(int i=0; i<differSpeed.size(); i++) {
+		if(differSpeed.at(i) == '/') {
+			str_differ = differSpeed.substr(0,i);
+			str_spd = differSpeed.substr(i+1,2);
+			break;
+		}
 	}
-	else if(20 < abs(sub_value) && abs(sub_value) <= 50){
-		if(sub_value < 0) sub_value = (sub_value + 20) * 0.35;
-		else sub_value = (sub_value - 20) * 0.35;
+	sub_value = atoi(str_differ.c_str()); //differ ;int
+	spd = atoi(str_spd.c_str()); //speed ;int
+	
+	if(spd != 0)
+		printf("differ : %d     speed : %d \n",sub_value, spd);
+
+	sub_value -= 20; 
+	if(0 <= abs(sub_value) && abs(sub_value) <= mid_threshold){
+		angle = 90;
+		sub_value = 0;	
+	}
+	else if(mid_threshold < abs(sub_value) && abs(sub_value) <= 70){
+		if(sub_value < 0) sub_value = (sub_value + mid_threshold) * 0.2; // 오른쪽으로 치우침. 왼쪽으로 가야함.
+		else sub_value = (sub_value - mid_threshold) * 0.2;
 	}
 	else {	// 
-		if(sub_value < 0) sub_value = (sub_value + 20) * 0.8;
-		else sub_value = (sub_value - 20) * 0.8;
+		if(sub_value < 0) sub_value = (sub_value + mid_threshold) * 0.65;
+		else sub_value = (sub_value - mid_threshold) * 0.65;
 	}
 
 	angle = 90 - sub_value;
-	if(angle > 150) angle = 150;
-	if(angle < 30) angle = 30;
-	printf("## angle: %d\n", angle);
 
-	// add by seung
+	if(angle > max_angle) angle = max_angle;
+	if(angle < min_angle) angle = min_angle;
+
 	cmd.linear.x = spd;
 	cmd.angular.z = angle;
 

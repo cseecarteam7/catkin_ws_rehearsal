@@ -166,6 +166,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/rule
+.PHONY : camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/rule
+
+# Convenience name for target.
+camera_on_node_pointup_cutdown: camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/rule
+
+.PHONY : camera_on_node_pointup_cutdown
+
+# fast build rule for target.
+camera_on_node_pointup_cutdown/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build
+.PHONY : camera_on_node_pointup_cutdown/fast
+
+# Convenience name for target.
+camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/rule
+.PHONY : camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/rule
+
+# Convenience name for target.
+camera_on_node_pointup_origin: camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/rule
+
+.PHONY : camera_on_node_pointup_origin
+
+# fast build rule for target.
+camera_on_node_pointup_origin/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build
+.PHONY : camera_on_node_pointup_origin/fast
+
+# Convenience name for target.
 camera_on/CMakeFiles/camera_on_node_pointup.dir/rule:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup.dir/rule
 .PHONY : camera_on/CMakeFiles/camera_on_node_pointup.dir/rule
@@ -224,6 +254,21 @@ geometry_msgs_generate_messages_nodejs: camera_on/CMakeFiles/geometry_msgs_gener
 geometry_msgs_generate_messages_nodejs/fast:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_on/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/rule
+.PHONY : camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/rule
+
+# Convenience name for target.
+camera_on_node_pointup_jy: camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/rule
+
+.PHONY : camera_on_node_pointup_jy
+
+# fast build rule for target.
+camera_on_node_pointup_jy/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build
+.PHONY : camera_on_node_pointup_jy/fast
 
 # Convenience name for target.
 camera_on/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
@@ -511,6 +556,21 @@ camera_on_gennodejs/fast:
 .PHONY : camera_on_gennodejs/fast
 
 # Convenience name for target.
+camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/rule
+.PHONY : camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/rule
+
+# Convenience name for target.
+camera_on_node_pointup_ym: camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/rule
+
+.PHONY : camera_on_node_pointup_ym
+
+# fast build rule for target.
+camera_on_node_pointup_ym/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build
+.PHONY : camera_on_node_pointup_ym/fast
+
+# Convenience name for target.
 camera_on/CMakeFiles/camera_on_genpy.dir/rule:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 camera_on/CMakeFiles/camera_on_genpy.dir/rule
 .PHONY : camera_on/CMakeFiles/camera_on_genpy.dir/rule
@@ -579,6 +639,114 @@ src/camera_on_node_pointup.cpp.s:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup.dir/src/camera_on_node_pointup.cpp.s
 .PHONY : src/camera_on_node_pointup.cpp.s
 
+src/camera_on_node_pointup_cutdown.o: src/camera_on_node_pointup_cutdown.cpp.o
+
+.PHONY : src/camera_on_node_pointup_cutdown.o
+
+# target to build an object file
+src/camera_on_node_pointup_cutdown.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/src/camera_on_node_pointup_cutdown.cpp.o
+.PHONY : src/camera_on_node_pointup_cutdown.cpp.o
+
+src/camera_on_node_pointup_cutdown.i: src/camera_on_node_pointup_cutdown.cpp.i
+
+.PHONY : src/camera_on_node_pointup_cutdown.i
+
+# target to preprocess a source file
+src/camera_on_node_pointup_cutdown.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/src/camera_on_node_pointup_cutdown.cpp.i
+.PHONY : src/camera_on_node_pointup_cutdown.cpp.i
+
+src/camera_on_node_pointup_cutdown.s: src/camera_on_node_pointup_cutdown.cpp.s
+
+.PHONY : src/camera_on_node_pointup_cutdown.s
+
+# target to generate assembly for a file
+src/camera_on_node_pointup_cutdown.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/src/camera_on_node_pointup_cutdown.cpp.s
+.PHONY : src/camera_on_node_pointup_cutdown.cpp.s
+
+src/camera_on_node_pointup_jy.o: src/camera_on_node_pointup_jy.cpp.o
+
+.PHONY : src/camera_on_node_pointup_jy.o
+
+# target to build an object file
+src/camera_on_node_pointup_jy.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/src/camera_on_node_pointup_jy.cpp.o
+.PHONY : src/camera_on_node_pointup_jy.cpp.o
+
+src/camera_on_node_pointup_jy.i: src/camera_on_node_pointup_jy.cpp.i
+
+.PHONY : src/camera_on_node_pointup_jy.i
+
+# target to preprocess a source file
+src/camera_on_node_pointup_jy.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/src/camera_on_node_pointup_jy.cpp.i
+.PHONY : src/camera_on_node_pointup_jy.cpp.i
+
+src/camera_on_node_pointup_jy.s: src/camera_on_node_pointup_jy.cpp.s
+
+.PHONY : src/camera_on_node_pointup_jy.s
+
+# target to generate assembly for a file
+src/camera_on_node_pointup_jy.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/src/camera_on_node_pointup_jy.cpp.s
+.PHONY : src/camera_on_node_pointup_jy.cpp.s
+
+src/camera_on_node_pointup_origin.o: src/camera_on_node_pointup_origin.cpp.o
+
+.PHONY : src/camera_on_node_pointup_origin.o
+
+# target to build an object file
+src/camera_on_node_pointup_origin.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/src/camera_on_node_pointup_origin.cpp.o
+.PHONY : src/camera_on_node_pointup_origin.cpp.o
+
+src/camera_on_node_pointup_origin.i: src/camera_on_node_pointup_origin.cpp.i
+
+.PHONY : src/camera_on_node_pointup_origin.i
+
+# target to preprocess a source file
+src/camera_on_node_pointup_origin.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/src/camera_on_node_pointup_origin.cpp.i
+.PHONY : src/camera_on_node_pointup_origin.cpp.i
+
+src/camera_on_node_pointup_origin.s: src/camera_on_node_pointup_origin.cpp.s
+
+.PHONY : src/camera_on_node_pointup_origin.s
+
+# target to generate assembly for a file
+src/camera_on_node_pointup_origin.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/src/camera_on_node_pointup_origin.cpp.s
+.PHONY : src/camera_on_node_pointup_origin.cpp.s
+
+src/camera_on_node_pointup_ym.o: src/camera_on_node_pointup_ym.cpp.o
+
+.PHONY : src/camera_on_node_pointup_ym.o
+
+# target to build an object file
+src/camera_on_node_pointup_ym.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/src/camera_on_node_pointup_ym.cpp.o
+.PHONY : src/camera_on_node_pointup_ym.cpp.o
+
+src/camera_on_node_pointup_ym.i: src/camera_on_node_pointup_ym.cpp.i
+
+.PHONY : src/camera_on_node_pointup_ym.i
+
+# target to preprocess a source file
+src/camera_on_node_pointup_ym.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/src/camera_on_node_pointup_ym.cpp.i
+.PHONY : src/camera_on_node_pointup_ym.cpp.i
+
+src/camera_on_node_pointup_ym.s: src/camera_on_node_pointup_ym.cpp.s
+
+.PHONY : src/camera_on_node_pointup_ym.s
+
+# target to generate assembly for a file
+src/camera_on_node_pointup_ym.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/src/camera_on_node_pointup_ym.cpp.s
+.PHONY : src/camera_on_node_pointup_ym.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -587,12 +755,15 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... install"
+	@echo "... camera_on_node_pointup_cutdown"
+	@echo "... camera_on_node_pointup_origin"
 	@echo "... test"
 	@echo "... camera_on_node_pointup"
 	@echo "... camera_on_node"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... camera_on_node_pointup_jy"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_cpp"
@@ -615,6 +786,7 @@ help:
 	@echo "... camera_on_generate_messages_nodejs"
 	@echo "... camera_on_gennodejs"
 	@echo "... install/strip"
+	@echo "... camera_on_node_pointup_ym"
 	@echo "... camera_on_genpy"
 	@echo "... src/camera_on_node.o"
 	@echo "... src/camera_on_node.i"
@@ -622,6 +794,18 @@ help:
 	@echo "... src/camera_on_node_pointup.o"
 	@echo "... src/camera_on_node_pointup.i"
 	@echo "... src/camera_on_node_pointup.s"
+	@echo "... src/camera_on_node_pointup_cutdown.o"
+	@echo "... src/camera_on_node_pointup_cutdown.i"
+	@echo "... src/camera_on_node_pointup_cutdown.s"
+	@echo "... src/camera_on_node_pointup_jy.o"
+	@echo "... src/camera_on_node_pointup_jy.i"
+	@echo "... src/camera_on_node_pointup_jy.s"
+	@echo "... src/camera_on_node_pointup_origin.o"
+	@echo "... src/camera_on_node_pointup_origin.i"
+	@echo "... src/camera_on_node_pointup_origin.s"
+	@echo "... src/camera_on_node_pointup_ym.o"
+	@echo "... src/camera_on_node_pointup_ym.i"
+	@echo "... src/camera_on_node_pointup_ym.s"
 .PHONY : help
 
 

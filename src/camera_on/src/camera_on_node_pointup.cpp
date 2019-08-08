@@ -36,6 +36,11 @@ const Scalar Yellow = Scalar(50, 250, 250);
 const Scalar Sky = Scalar(215, 200, 60);
 const Scalar Pink = Scalar(220, 110, 230);
 
+int flag = 1;
+int pre_cnt = 0;
+int lap_cnt = 0;
+
+
 void 
 show_lines(Mat &img, vector<Vec4i> &lines, Scalar color = Scalar(0, 0, 0),int thickness=2)
 {
@@ -97,7 +102,7 @@ split_left_right(vector<Vec4i> lines, vector<Vec4i>&left_lines, vector<Vec4i> &r
 	}
 }
 
-bool 
+	bool 
 find_line_params(vector<Vec4i> &left_lines, float *left_m, float *left_b)
 {
 
@@ -128,8 +133,50 @@ find_line_params(vector<Vec4i> &left_lines, float *left_m, float *left_b)
 	return true;
 }
 
+void find_start_lines(Mat &img, vector<Vec4i> &lines)
+{
+	int find_flag = 0;
 
-void 
+	for (int i = 0; i < lines.size(); i++)
+	{
+		int x1 = lines[i][0];
+		int y1 = lines[i][1];
+		int x2 = lines[i][2];
+		int y2 = lines[i][3];
+
+		float slope;
+
+		//Calculate slope
+		if (x2 - x1 == 0) //corner case, avoiding division by 0
+			slope = 999.0; //practically infinite slope
+		else
+			slope = (y2 - y1) / (float)(x2 - x1);
+
+		//Filter lines based on slope
+		if (abs(slope) < 0.065) {
+			find_flag = 1;
+			putText(img, format("Find START LINE: %d\n", lap_cnt), Point(50,50), FONT_HERSHEY_SIMPLEX,0.5,Yellow,2);
+			printf("lap_cnt: %d\n", lap_cnt);
+
+			if(flag){
+				lap_cnt++;
+			}
+			flag = 0;
+			break;   
+		}
+	}
+
+	if(!find_flag) pre_cnt++;
+	if(pre_cnt > 200){
+		pre_cnt = 0;
+		flag = 1;
+	}
+
+}
+
+
+
+	void 
 find_lines(Mat &img, vector<cv::Vec4i> &left_lines, vector<Vec4i>& right_lines, float *rdistance, float *ldistance)
 {
 	static float left_slope_mem = 1, right_slope_mem = 1, right_b_mem = 0, left_b_mem = 0;
@@ -142,10 +189,9 @@ find_lines(Mat &img, vector<cv::Vec4i> &left_lines, vector<Vec4i>& right_lines, 
 		float left_x120 = (YHalf - left_b) / left_m;
 		left_slope_mem = left_m;
 		left_b_mem = left_b;
-		printf("## left slope: %f\n", left_slope_mem);
 #ifdef CAMERA_SHOW
 		line(img, Point(left_x0, 0), Point(left_x120, YHalf), Blue, 3);
-		cout << left_lines.size() << " left lines,";
+		//out << left_lines.size() << " left lines,";
 #endif 
 	}
 	else {
@@ -158,11 +204,10 @@ find_lines(Mat &img, vector<cv::Vec4i> &left_lines, vector<Vec4i>& right_lines, 
 		float right_x120 = (YHalf - right_b) / right_m;
 		right_slope_mem = right_m;
 		right_b_mem = right_b;
-		printf("## right slope: %f\n", right_slope_mem);
 #ifdef CAMERA_SHOW
 		line(img, Point(right_x0, 0), Point(right_x120, YHalf), Red, 3);
 #endif
-		cout << right_lines.size() << " right lines" <<endl;
+		//cout << right_lines.size() << " right lines" <<endl;
 	}
 	else {
 		cout << "\tNo RIght Line" << endl;
@@ -179,13 +224,55 @@ int img_process(Mat &frame)
 	Mat grayframe, edge_frame, roi_gray_ch3;
 	Mat roi;
 	cvtColor(frame, grayframe, COLOR_BGR2GRAY);
-	Rect rect_roi(0,YHalf,Width,YHalf);
+	Rect rect_roi(0,YHalf+40,Width,YHalf-40);
 	roi = frame(rect_roi);
 
 	cvtColor(roi,grayframe,COLOR_BGR2GRAY) ;
 	GaussianBlur(grayframe,grayframe,Size(3,3),1.5);
 	cvtColor(grayframe, roi_gray_ch3, COLOR_GRAY2BGR);
 	Canny(grayframe,edge_frame,70,150,3); //min_val, max val , filter size
+
+
+	// START start_line detection
+	//============
+	Mat hsvImage;
+	cvtColor(roi, hsvImage, COLOR_BGR2HSV);
+
+	std::vector<cv::Mat> hsvChannels;
+	cv::split(hsvImage, hsvChannels);
+
+	int hueValue = 6; // orange color
+	int hueRange = 5; 
+
+	int minSaturation = 120; // I'm not sure which value is good here...
+	int minValue = 140; // not sure whether 50 is a good min value here...
+
+	Mat hueImage = hsvChannels[0]; // [hue, saturation, value]
+
+	Mat hueMask;
+	inRange(hueImage, hueValue - hueRange, hueValue + hueRange, hueMask);
+
+	if (hueValue - hueRange < 0 || hueValue + hueRange > 180){
+		Mat hueMaskUpper;
+		int upperHueValue = hueValue + 180; 
+		inRange(hueImage, upperHueValue - hueRange, upperHueValue + hueRange, hueMaskUpper);
+		//inRange(hueImage, Scalar(100, 84, )
+
+		hueMask = hueMask | hueMaskUpper;
+	}
+	Mat saturationMask = hsvChannels[1] > minSaturation;
+	Mat valueMask = hsvChannels[2] > minValue;
+
+	hueMask = (hueMask & saturationMask) & valueMask;
+
+
+	vector<cv::Vec4i> start_lines;
+	//HoughLinesP(hueMask, start_lines, 1, CV_PI / 360, 50, 50, 10);
+	//find_start_lines(hueMask, start_lines);
+	// FINISH start_line detection
+
+	HoughLinesP(edge_frame, start_lines, 1, PI/180, 30, 30, 10);
+	find_start_lines(edge_frame, start_lines);
 
 	vector<cv::Vec4i> lines_set;
 
@@ -215,8 +302,12 @@ int img_process(Mat &frame)
 	imshow("frame", frame);
 	imshow("roi_gray_ch3", roi_gray_ch3);
 #endif
+	//imshow("edgeframe", edge_frame);
+	//imshow("desired_color", hueMask);
+
 	return differ;
 }
+
 
 int 
 main(int argc, char**argv)

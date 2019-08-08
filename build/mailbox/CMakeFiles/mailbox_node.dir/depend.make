@@ -62,6 +62,7 @@ mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/inc
 mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
 mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int16.h
 mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int8.h
+mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/std_msgs/String.h
 mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 

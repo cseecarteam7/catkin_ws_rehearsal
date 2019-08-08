@@ -660,6 +660,19 @@ KeyPad_geneus/fast:
 .PHONY : KeyPad_geneus/fast
 
 #=============================================================================
+# Target rules for targets named mailbox_original
+
+# Build rule for target.
+mailbox_original: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mailbox_original
+.PHONY : mailbox_original
+
+# fast build rule for target.
+mailbox_original/fast:
+	$(MAKE) -f mailbox/CMakeFiles/mailbox_original.dir/build.make mailbox/CMakeFiles/mailbox_original.dir/build
+.PHONY : mailbox_original/fast
+
+#=============================================================================
 # Target rules for targets named mailbox_genpy
 
 # Build rule for target.
@@ -829,6 +842,32 @@ mailbox_generate_messages_nodejs/fast:
 .PHONY : mailbox_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named camera_on_node_pointup_cutdown
+
+# Build rule for target.
+camera_on_node_pointup_cutdown: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_on_node_pointup_cutdown
+.PHONY : camera_on_node_pointup_cutdown
+
+# fast build rule for target.
+camera_on_node_pointup_cutdown/fast:
+	$(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_cutdown.dir/build
+.PHONY : camera_on_node_pointup_cutdown/fast
+
+#=============================================================================
+# Target rules for targets named camera_on_node_pointup_origin
+
+# Build rule for target.
+camera_on_node_pointup_origin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_on_node_pointup_origin
+.PHONY : camera_on_node_pointup_origin
+
+# fast build rule for target.
+camera_on_node_pointup_origin/fast:
+	$(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_origin.dir/build
+.PHONY : camera_on_node_pointup_origin/fast
+
+#=============================================================================
 # Target rules for targets named camera_on_node_pointup
 
 # Build rule for target.
@@ -879,6 +918,19 @@ geometry_msgs_generate_messages_nodejs: cmake_check_build_system
 geometry_msgs_generate_messages_nodejs/fast:
 	$(MAKE) -f camera_on/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_on/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named camera_on_node_pointup_jy
+
+# Build rule for target.
+camera_on_node_pointup_jy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_on_node_pointup_jy
+.PHONY : camera_on_node_pointup_jy
+
+# fast build rule for target.
+camera_on_node_pointup_jy/fast:
+	$(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_jy.dir/build
+.PHONY : camera_on_node_pointup_jy/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
@@ -1128,6 +1180,19 @@ camera_on_gennodejs/fast:
 .PHONY : camera_on_gennodejs/fast
 
 #=============================================================================
+# Target rules for targets named camera_on_node_pointup_ym
+
+# Build rule for target.
+camera_on_node_pointup_ym: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camera_on_node_pointup_ym
+.PHONY : camera_on_node_pointup_ym
+
+# fast build rule for target.
+camera_on_node_pointup_ym/fast:
+	$(MAKE) -f camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build.make camera_on/CMakeFiles/camera_on_node_pointup_ym.dir/build
+.PHONY : camera_on_node_pointup_ym/fast
+
+#=============================================================================
 # Target rules for targets named camera_on_genpy
 
 # Build rule for target.
@@ -1373,6 +1438,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... KeyPad_gencpp"
 	@echo "... KeyPad_geneus"
+	@echo "... mailbox_original"
 	@echo "... mailbox_genpy"
 	@echo "... mailbox_generate_messages_py"
 	@echo "... mailbox_gencpp"
@@ -1386,10 +1452,13 @@ help:
 	@echo "... mailbox_generate_messages_eus"
 	@echo "... mailbox_geneus"
 	@echo "... mailbox_generate_messages_nodejs"
+	@echo "... camera_on_node_pointup_cutdown"
+	@echo "... camera_on_node_pointup_origin"
 	@echo "... camera_on_node_pointup"
 	@echo "... camera_on_node"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... camera_on_node_pointup_jy"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_cpp"
@@ -1409,6 +1478,7 @@ help:
 	@echo "... camera_on_genlisp"
 	@echo "... camera_on_generate_messages_nodejs"
 	@echo "... camera_on_gennodejs"
+	@echo "... camera_on_node_pointup_ym"
 	@echo "... camera_on_genpy"
 	@echo "... video_show_node"
 	@echo "... camera_show_node"

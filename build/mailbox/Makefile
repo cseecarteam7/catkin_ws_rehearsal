@@ -166,6 +166,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+mailbox/CMakeFiles/mailbox_original.dir/rule:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailbox/CMakeFiles/mailbox_original.dir/rule
+.PHONY : mailbox/CMakeFiles/mailbox_original.dir/rule
+
+# Convenience name for target.
+mailbox_original: mailbox/CMakeFiles/mailbox_original.dir/rule
+
+.PHONY : mailbox_original
+
+# fast build rule for target.
+mailbox_original/fast:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f mailbox/CMakeFiles/mailbox_original.dir/build.make mailbox/CMakeFiles/mailbox_original.dir/build
+.PHONY : mailbox_original/fast
+
+# Convenience name for target.
 mailbox/CMakeFiles/mailbox_genpy.dir/rule:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mailbox/CMakeFiles/mailbox_genpy.dir/rule
 .PHONY : mailbox/CMakeFiles/mailbox_genpy.dir/rule
@@ -387,6 +402,33 @@ src/mailbox_node.cpp.s:
 	cd /home/cseecar/catkin_ws/build && $(MAKE) -f mailbox/CMakeFiles/mailbox_node.dir/build.make mailbox/CMakeFiles/mailbox_node.dir/src/mailbox_node.cpp.s
 .PHONY : src/mailbox_node.cpp.s
 
+src/mailbox_node_original.o: src/mailbox_node_original.cpp.o
+
+.PHONY : src/mailbox_node_original.o
+
+# target to build an object file
+src/mailbox_node_original.cpp.o:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f mailbox/CMakeFiles/mailbox_original.dir/build.make mailbox/CMakeFiles/mailbox_original.dir/src/mailbox_node_original.cpp.o
+.PHONY : src/mailbox_node_original.cpp.o
+
+src/mailbox_node_original.i: src/mailbox_node_original.cpp.i
+
+.PHONY : src/mailbox_node_original.i
+
+# target to preprocess a source file
+src/mailbox_node_original.cpp.i:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f mailbox/CMakeFiles/mailbox_original.dir/build.make mailbox/CMakeFiles/mailbox_original.dir/src/mailbox_node_original.cpp.i
+.PHONY : src/mailbox_node_original.cpp.i
+
+src/mailbox_node_original.s: src/mailbox_node_original.cpp.s
+
+.PHONY : src/mailbox_node_original.s
+
+# target to generate assembly for a file
+src/mailbox_node_original.cpp.s:
+	cd /home/cseecar/catkin_ws/build && $(MAKE) -f mailbox/CMakeFiles/mailbox_original.dir/build.make mailbox/CMakeFiles/mailbox_original.dir/src/mailbox_node_original.cpp.s
+.PHONY : src/mailbox_node_original.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -397,6 +439,7 @@ help:
 	@echo "... test"
 	@echo "... install/strip"
 	@echo "... install"
+	@echo "... mailbox_original"
 	@echo "... mailbox_genpy"
 	@echo "... rebuild_cache"
 	@echo "... mailbox_generate_messages_py"
@@ -416,6 +459,9 @@ help:
 	@echo "... src/mailbox_node.o"
 	@echo "... src/mailbox_node.i"
 	@echo "... src/mailbox_node.s"
+	@echo "... src/mailbox_node_original.o"
+	@echo "... src/mailbox_node_original.i"
+	@echo "... src/mailbox_node_original.s"
 .PHONY : help
 
 

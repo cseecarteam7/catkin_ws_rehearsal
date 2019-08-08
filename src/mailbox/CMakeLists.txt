@@ -80,7 +80,13 @@ target_link_libraries(${PROJECT_NAME}_node
   ${OpenCV_LIBS} 
 ) 
 
- 
+add_executable(${PROJECT_NAME}_original src/mailbox_node_original.cpp)
+add_dependencies(${PROJECT_NAME}_original ${${PROJECT_NAME}_EXPORTED_TARGETS} 
+${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_original 
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBS} 
+)  
 
 ## topic_subscriber 노드에 대한 빌드 옵션이다. 
 

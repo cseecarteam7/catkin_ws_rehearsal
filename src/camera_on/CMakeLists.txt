@@ -50,3 +50,34 @@ target_link_libraries(${PROJECT_NAME}_node_pointup
   ${OpenCV_LIBS} 
 ) 
  
+add_executable(${PROJECT_NAME}_node_pointup_ym src/camera_on_node_pointup_ym.cpp)
+add_dependencies(${PROJECT_NAME}_node_pointup_ym ${${PROJECT_NAME}_EXPORTED_TARGETS} 
+${catkin_EXPORTED_TARGETS}) 
+target_link_libraries(${PROJECT_NAME}_node_pointup_ym
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBS} 
+)
+
+add_executable(${PROJECT_NAME}_node_pointup_jy src/camera_on_node_pointup_jy.cpp)
+add_dependencies(${PROJECT_NAME}_node_pointup_jy ${${PROJECT_NAME}_EXPORTED_TARGETS} 
+${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_node_pointup_jy
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBS} 
+)
+
+add_executable(${PROJECT_NAME}_node_pointup_origin src/camera_on_node_pointup_origin.cpp)
+add_dependencies(${PROJECT_NAME}_node_pointup_origin ${${PROJECT_NAME}_EXPORTED_TARGETS} 
+${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_node_pointup_origin
+  ${catkin_LIBRARIES} 
+  ${OpenCV_LIBS} 
+)
+
+add_executable(${PROJECT_NAME}_node_pointup_cutdown src/camera_on_node_pointup_cutdown.cpp)
+add_dependencies(${PROJECT_NAME}_node_pointup_cutdown ${${PROJECT_NAME}_EXPORTED_TARGETS}
+${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_node_pointup_cutdown
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+)

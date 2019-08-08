@@ -13,6 +13,8 @@ std_msgs/Int8.h
 /home/cseecar/catkin_ws/src/mailbox/src/std_msgs/Int8.h
 std_msgs/Int16.h
 /home/cseecar/catkin_ws/src/mailbox/src/std_msgs/Int16.h
+std_msgs/String.h
+/home/cseecar/catkin_ws/src/mailbox/src/std_msgs/String.h
 stdio.h
 -
 fcntl.h
@@ -28,6 +30,8 @@ math.h
 stdlib.h
 -
 geometry_msgs/Twist.h
+-
+string
 -
 
 /opt/ros/kinetic/include/geometry_msgs/Twist.h
@@ -729,6 +733,22 @@ ros/message_operations.h
 -
 
 /opt/ros/kinetic/include/std_msgs/Int8.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/kinetic/include/std_msgs/String.h
 string
 -
 vector
